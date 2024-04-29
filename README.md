@@ -1,2 +1,2 @@
-# uprava-poplatkov-dopravy
+# Úprava poplatkov dopravy pre Woocommerce
 Plugin vytvára nové podmienky pre jednotlivé prepravné spoločnosti. Prepisujú nastavené ceny dopravy a stanovuje nové ceny dopravy podľa podmienok:
