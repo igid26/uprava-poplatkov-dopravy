@@ -14,10 +14,6 @@ License: GPL2
 
 
 
-
-
-
-
 // Nastavenie dopravy zadarma pre konkrétnu dopravu:
 //Kód zmení cenu dopravy na 0 (doprava zdarma), v prípade, že je suma objednávky vyššia ako 200 €. - Vhodné napr. pre Packetu alebo Balikobox.
 add_filter( 'woocommerce_package_rates', 'nastavenie_dopravy_zdarma_pre_objednavku_nad', 10, 2 );
