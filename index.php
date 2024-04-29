@@ -90,17 +90,8 @@ function skryt_dopravu_podla_rozmerov( $rates, $package ) {
 
 
 
-
-
-
-
-
-
-
 //Znižujúca sa cena dopravy podľa počtu kusov alebo váhy
 //Pri jednom projekte som mal požiadavku na úpravu dopravy podľa počtu kusov a váhy + pre jednotlivé kategórie mali byť nastavené rôzne ceny. Boli nato využité triedy dopravy, ktoré zlučovali niekoľko kategórie, ktoré mali rovnaké podmienky.
-
-
 
 add_filter( 'woocommerce_package_rates', 'klesajuca_cena_dopravy_podla_triedy_dopravy', 10, 2 );
 function klesajuca_cena_dopravy_podla_triedy_dopravy( $rates, $packages ) {
@@ -118,14 +109,9 @@ function klesajuca_cena_dopravy_podla_triedy_dopravy( $rates, $packages ) {
         foreach( WC()->cart->get_cart() as $cart_item ){
         $product_id[] = $cart_item['product_id'];
         
-       
         $produkt = wc_get_product($cart_item['product_id']);
-
         $cena = wc_get_price_including_tax( $cart_item['data'] );
-
         $trieda_dopravy = $cart_item['data']->get_shipping_class_id();
-        
-        
         
         //CENY ZA KUS pre triedu dopravy 178.
         //Podmienka: Ak je počet menší ako 3 doprava bude 30 €. Ak je počet >= 3 tak cena bude počet kusov * doprava (10€)
@@ -175,12 +161,11 @@ function klesajuca_cena_dopravy_podla_triedy_dopravy( $rates, $packages ) {
                 $cena_za_dopravu []= $prepocet_dopravy_za_kg; 
         }
        }
-
        
        //LEN OSOBNY ODBER - Ak je trieda dopravy 181 tak umožní len osobný odber objednávky
        if(( $method_id == 'flat_rate' ) AND (( $trieda_dopravy == '181' ) OR ( $trieda_dopravy == '--' ) ) ){ 
-                unset($rates['flat_rate']);
-                unset($rates['flat_rate:1']);
+                unset($rates['flat_rate']); //sem zadajte value dopravy, ktorá sa má vypnúť
+                unset($rates['flat_rate:1']); //sem zadajte value dopravy, ktorá sa má vypnúť
                 $rates['local_pickup:3']->label = 'Osobný odber';
        }
        
