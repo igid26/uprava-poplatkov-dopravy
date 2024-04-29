@@ -11,13 +11,6 @@ License: GPL2
 
 // Plugin vytvára nové podmienky pre jednotlivé prepravné spolocnosti
 
-
-
-
-
-
-
-
 // Nastavenie dopravy zadarma pre konkrétnu dopravu:
 //Kód zmení cenu dopravy na 0 (doprava zdarma), v prípade, že je suma objednávky vyššia ako 200 €. - Vhodné napr. pre Packetu alebo Balikobox.
 add_filter( 'woocommerce_package_rates', 'nastavenie_dopravy_zdarma_pre_objednavku_nad', 10, 2 );
@@ -36,7 +29,6 @@ function nastavenie_dopravy_zdarma_pre_objednavku_nad( $rates, $package ) {
 
     return $rates;
 }
-
 
 // Vypnutie konkrétnej dopravy pre prekročenie určitej váhy - Napr. v prípade Packety alebo Balikoboxu. K produktom je potrebné zadať váhu.
 add_filter( 'woocommerce_package_rates', 'skryt_dopravu_predopravu_podla_hmotnosti_produktu', 10, 2 );
@@ -63,7 +55,6 @@ function skryt_dopravu_predopravu_podla_hmotnosti_produktu( $rates, $package ) {
 }
 
 // Koniec obmedzenie dopravy podľa váhy
-
 
 
 
