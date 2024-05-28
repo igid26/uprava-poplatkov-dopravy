@@ -2,7 +2,7 @@
 /*
 Plugin Name: Uprava platobnych moznosti
 Plugin URI: https://example.com/kontrola-gramatiky-ai
-Description: Tento plugin využíva umelú inteligenciu na kontrolu gramatiky vo WordPress.
+Description: Plugin vytvára nové podmienky pre jednotlivé prepravné spolocnosti
 Version: 1.0
 Author: Igor Majan
 Author URI: https://example.com/about-igor-majan
